@@ -4,7 +4,7 @@
   </div>
 </div>
 
-<% if !@user.private? || @user == current_user || current_user.leaders.include?(@user) %>
+<% if policy(@user).show_private? %>
   <div class="row mb-2">
   <div class="col-md-6 offset-md-3">
     <%= render "users/profile_nav", user: @user %>

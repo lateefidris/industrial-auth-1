@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
 
   before_action :is_an_authirized_user, only: [:create]
+  before_action { authorize @comment || Comment }
 
   def is_an_authirized_user
     @photo = Photo.find(params.fetch(:comment).fetch(:photo_id))
