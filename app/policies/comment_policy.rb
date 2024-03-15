@@ -23,6 +23,6 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user == comment.author
+    user == comment.author || photo.owner
   end
 end
